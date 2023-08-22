@@ -1,4 +1,4 @@
-import { Collection, Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Collection, Column, Entity, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { ItensPedido } from "./itenspedido.entity";
 
 @Entity()
@@ -12,6 +12,9 @@ export class Item{
     @Column()
     precoItem: number;
 
-    @ManyToOne(()=> ItensPedido, itenspedido => itenspedido.item)
+    @Column()
+    categoria: string;
+
+    @OneToMany(()=> ItensPedido, itenspedido => itenspedido.item)
     itenspedido: ItensPedido[];
 }

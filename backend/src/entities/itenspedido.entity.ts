@@ -9,7 +9,7 @@ export class ItensPedido{
     @Column()
     quantidade: number;
 
-    @OneToMany(()=> Item, item => item.itenspedido)
+    @ManyToOne(()=> Item, item => item.itenspedido)
     item: Item[];
 
     @ManyToOne(()=> Venda, venda => venda.itenspedido)
