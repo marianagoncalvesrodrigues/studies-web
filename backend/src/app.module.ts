@@ -7,6 +7,14 @@ import { ItensPedido } from './entities/itenspedido.entity';
 import { Venda } from './entities/venda.entity';
 import { Item } from './entities/item.entity';
 import { Cliente } from './entities/cliente.entity';
+import { ClienteController } from './controllers/cliente.controller';
+import { VendaController } from './controllers/venda.controller';
+import { ItemController } from './controllers/item.controller';
+import { ItenspedidoController } from './controllers/itenspedido.controller';
+import { ClienteService } from './services/cliente.service';
+import { ItemService } from './services/item.service';
+import { ItenspedidoService } from './services/itenspedido.service';
+import { VendaService } from './services/venda.service';
 
 @Module({
   imports: [
@@ -23,7 +31,7 @@ import { Cliente } from './entities/cliente.entity';
     TypeOrmModule.forFeature([ItensPedido, Venda, Item, Cliente]),
     
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, ClienteController, VendaController, ItemController, ItenspedidoController],
+  providers: [AppService, ClienteService, ItemService, ItenspedidoService, VendaService],
 })
 export class AppModule {}

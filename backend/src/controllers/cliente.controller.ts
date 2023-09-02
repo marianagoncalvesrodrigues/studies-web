@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Put, Delete } from '@nestjs/common'
-import { Cliente } from 'src/entities/cliente.entity';
+import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common'
+import { ClienteService } from 'src/services/cliente.service'
+import { Cliente } from 'src/entities/cliente.entity'
 
 @Controller('clientes')
 export class ClienteController{
@@ -10,7 +11,7 @@ export class ClienteController{
         return this.clienteService.getAllClientes();
     }
 
-    @Get()
+    @Get(':id')
     async getIdClientes(@Param('id') id: number): Promise<Cliente> {
         return this.clienteService.getIdClientes(id);
     }

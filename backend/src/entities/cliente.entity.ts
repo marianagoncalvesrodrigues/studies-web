@@ -18,6 +18,9 @@ export class Cliente{
     @Column()
     password: string;
 
+    @Column()
+    endereco: string;
+
     @OneToMany(()=>Venda, venda => venda.cliente)
     vendas: Venda[];
 }
